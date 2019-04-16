@@ -44,7 +44,7 @@ class GameViewController: UIViewController {
         func up() {
             for i in 0..<3 {
                 //端に来たら動かす向きを逆にする
-                if positionX[i] > width || positionX[i] <0 {
+                if positionX[i] > width || positionX[i] < 0 {
                     dx[i] = dx[i] * (-1)
                 }
             position[i] += dx[i] //画像の位置をdx分ずらす
@@ -68,8 +68,8 @@ class GameViewController: UIViewController {
             resultLabel.isHidden = false //結果ラベルを隠さない（表す）
             
             let highScore1: Int = defaults.intenger(forKey: "score1") //ユーザーデフォルトに"score1"というキーの値を取得
-            let highScore1: Int = defaults.intenger(forKey: "score2") //"score2"というキーの値を取得
-            let highScore1: Int = defaults.intenger(forKey: "score3") //"score3"というキーの値を取得
+            let highScore2: Int = defaults.intenger(forKey: "score2") //"score2"というキーの値を取得
+            let highScore3: Int = defaults.intenger(forKey: "score3") //"score3"というキーの値を取得
        
             if score > highScore1 { //ランキング１位の記録を更新したら
                 defaults.set(score, forKey: "score1") //"score１"というキーでscoreを保存
